@@ -47,11 +47,11 @@ function NavHeader({handleLogin}) {
                 <NavLink to="/books" className="navgation">书籍</NavLink>
                 <NavLink to="/interviews" className="navgation">面试题</NavLink>
                 <a
-                    href="https://duyi.ke.qq.com/"
+                    href="https://www.bilibili.com/"
                     className="navgation"
                     target="_blank"
                     rel="noreferrer"
-                >视频教程</a>
+                >视频教程(自己去b站搜)</a>
             </nav>
             <div className="searchContainer">
                 <Select
