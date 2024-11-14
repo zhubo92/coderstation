@@ -41,7 +41,7 @@ function _403() {
                 extra={
                     <Button
                         type="primary"
-                        onClick={() => window.location.pathname = "/"}
+                        onClick={() => window.location.hash = "#/"}
                     >回到首页</Button>
                 }
             />
@@ -66,7 +66,7 @@ function _404() {
                 extra={
                     <Button
                         type="primary"
-                        onClick={() => window.location.pathname = "/"}
+                        onClick={() => window.location.hash = "#/"}
                     >回到首页</Button>
                 }
             />
@@ -74,8 +74,16 @@ function _404() {
     )
 }
 
+// http://localhost:8899/web/#/path/to/page?key=value => /path/to/path
+function getCurrentPath() {
+    const hash = window.location.hash.slice(1);
+    const [path, queryString] = hash.split('?');
+    return path || "/";
+}
+
 function RouteConfig() {
-    const currentRoutes = routes.filter(route => route.path === window.location.pathname);
+    const currentRoutes = routes.filter(route => route.path === getCurrentPath());
+
     // 如果路由不存在，应该返回404页面
     if (currentRoutes.length === 0) {
         return <_404/>;
